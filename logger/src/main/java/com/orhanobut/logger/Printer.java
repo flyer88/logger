@@ -1,5 +1,7 @@
 package com.orhanobut.logger;
 
+import android.graphics.Matrix;
+
 public interface Printer {
 
   Printer t(String tag, int methodCount);
@@ -26,5 +28,8 @@ public interface Printer {
 
   void xml(String xml);
 
+  void matrix(Matrix matrix);
+
   void clear();
+
 }

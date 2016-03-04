@@ -1,5 +1,6 @@
 package com.orhanobut.logger;
 
+import android.graphics.Matrix;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -193,6 +194,23 @@ final class LoggerPrinter implements Printer {
     } catch (TransformerException e) {
       e(e.getCause().getMessage() + "\n" + xml);
     }
+  }
+
+  @Override
+  public void matrix(Matrix matrix) {
+    if (matrix == null){
+      d("Empty/Null matrix");
+      return;
+    }
+    float[] values = new float[9];
+    matrix.getValues(values);
+    String msg = "matrix values:  \n";
+    msg = msg + "/                 \\ \n";
+    msg = msg + "| "+ values[0] + " , " + values[1] +" , "+ values[2] + " |\n";
+    msg = msg + "| "+ values[3] + " , " + values[4] +" , "+ values[5] + " |\n";
+    msg = msg + "| "+ values[6] + " , " + values[7] +" , "+ values[8] + " |\n";
+    msg = msg + "\\                 /";
+    d(msg);
   }
 
   @Override public void clear() {

@@ -1,5 +1,7 @@
 package com.orhanobut.logger;
 
+import android.graphics.Matrix;
+
 /**
  * Logger is a wrapper of {@link android.util.Log}
  * But more pretty, simple and powerful
@@ -93,6 +95,10 @@ public final class Logger {
    */
   public static void xml(String xml) {
     printer.xml(xml);
+  }
+
+  public static void matrix(Matrix matrix){
+    printer.matrix(matrix);
   }
 
 }
